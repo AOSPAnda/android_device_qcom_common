@@ -5,25 +5,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from extract_utils.fixups_lib import lib_fixups, lib_fixups_user_type
 from extract_utils.main import ExtractUtils
 
-from extract_utils_qti.fixups_lib import lib_fixup_vendor_suffix
 from extract_utils_qti.module import ExtractUtilsQTIModule, QTIComponentType
-
-lib_fixups: lib_fixups_user_type = {
-    **lib_fixups,
-    (
-        'vendor.qti.hardware.perf@2.0',
-        'vendor.qti.hardware.perf@2.1',
-        'vendor.qti.hardware.perf@2.2',
-    ): lib_fixup_vendor_suffix,
-}
 
 module = ExtractUtilsQTIModule(
     'media/5.4',
     QTIComponentType.VENDOR,
-    lib_fixups=lib_fixups,
 )
 
 if __name__ == '__main__':
